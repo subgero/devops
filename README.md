@@ -40,3 +40,27 @@ Choose a NodeJs versio
 ```
 nvm use 16
 ```
+
+# Create a Rest API
+
+Create a new directory 
+
+```
+mkdir rest-api
+```
+
+Enter to the new directory
+```
+cd rest-api
+```
+
+Initialize a new Node.js app
+```
+npm init
+```
+
+Install Express.js
+
+```
+npm install express
+```
