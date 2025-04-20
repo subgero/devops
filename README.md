@@ -19,7 +19,7 @@ nvm -v
 Install the latest NodeJs version 
 
 ```
-nvm install latest
+nvm install node
 ```
 
 Install an specific NodeJs version
