@@ -35,7 +35,7 @@ Check NodeJs version installed
 nvm lt
 ```
 
-Choose a NodeJs versio
+Choose a NodeJs version
 
 ```
 nvm use 16
