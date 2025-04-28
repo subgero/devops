@@ -1,42 +1,74 @@
 # How to become a Devops Engineer
 
-## Install nvm and Node on Linux (Ubuntu)
+## Create a Rest API
+
+Create a new directory 
 
 ```
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+mkdir rest-api
 ```
 
-Reload the shell configuration
+Enter to the new directory
 ```
-source ~/.bashrc
-```
-
-Check the nvm version
-```
-nvm -v
+cd rest-api
 ```
 
-Install the latest NodeJs version 
-
+Initialize a new Node.js app
 ```
-nvm install node
-```
-
-Install an specific NodeJs version
-
-```
-nvm install 16
+npm init
 ```
 
-Check NodeJs version installed
-
-
-```
-nvm lt
-```
-
-Choose a NodeJs versio
+Install Express.js
 
 ```
-nvm use 16
+npm install express dotenv
+```
+
+Create file env
+```
+PORT = 500
+```
+Add the next line to the package.json file:
+
+```
+"type": "module",
+```
+
+Add the next line in the scripts section in the package.json file:
+
+```
+"start": "node index.js"
+```
+
+Create a new index.js file and put this content in that file:
+
+```
+import express from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const app = express ();
+
+
+app.use(express.json());
+
+const PORT = process.env.PORT || 5000;
+
+
+app.listen(PORT, () =>{
+    console.log("Server listening on port:", PORT);
+});
+
+app.get("/", (req, res) => {
+
+    res.json({"message":"Hola mundo"});
+
+});
+```
+
+Now run:
+
+```
+npm run start
 ```
