@@ -1,42 +1,43 @@
 # How to become a Devops Engineer
 
-## Install nvm and Node on Linux (Ubuntu)
+## Install Docker / Docker Compose Plugin
 
 ```
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
 ```
 
-Reload the shell configuration
+Install the docker packages
 ```
-source ~/.bashrc
-```
-
-Check the nvm version
-```
-nvm -v
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-Install the latest NodeJs version 
-
+Verify the docker installation
 ```
-nvm install node
-```
-
-Install an specific NodeJs version
-
-```
-nvm install 16
+sudo docker run hello-world
 ```
 
-Check NodeJs version installed
-
-
-```
-nvm lt
-```
-
-Choose a NodeJs version
+Install Docker Compose Plugin
 
 ```
-nvm use 16
+sudo apt-get update
+sudo apt-get install docker-compose-plugin
 ```
+
+Check the Docker Compose Plugin version
+```
+docker compose version
+```
+
+
